@@ -19,21 +19,21 @@ namespace AgenticCopilot.Models
         /// </summary>
         [Required]
         [StringLength(200, MinimumLength = 3)]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         /// <summary>
         /// Client name associated with the engagement
         /// </summary>
         [Required]
         [StringLength(200, MinimumLength = 2)]
-        public string ClientName { get; set; }
+        public string ClientName { get; set; } = string.Empty;
 
         /// <summary>
         /// Partner name associated with the engagement
         /// </summary>
         [Required]
         [StringLength(200, MinimumLength = 2)]
-        public string PartnerName { get; set; }
+        public string PartnerName { get; set; } = string.Empty;
 
         /// <summary>
         /// Timestamp when the engagement was created

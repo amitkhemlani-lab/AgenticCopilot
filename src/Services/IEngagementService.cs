@@ -22,7 +22,7 @@ namespace AgenticCopilot.Services
         /// </summary>
         /// <param name="id">Unique identifier of the engagement</param>
         /// <returns>Engagement if found, null otherwise</returns>
-        Task<Engagement> GetEngagementByIdAsync(Guid id);
+        Task<Engagement?> GetEngagementByIdAsync(Guid id);
 
         /// <summary>
         /// Creates a new engagement
@@ -37,7 +37,7 @@ namespace AgenticCopilot.Services
         /// <param name="id">Unique identifier of the engagement to update</param>
         /// <param name="updateDto">Updated engagement data</param>
         /// <returns>Updated engagement if found, null otherwise</returns>
-        Task<Engagement> UpdateEngagementAsync(Guid id, UpdateEngagementDto updateDto);
+        Task<Engagement?> UpdateEngagementAsync(Guid id, UpdateEngagementDto updateDto);
 
         /// <summary>
         /// Deletes an engagement
