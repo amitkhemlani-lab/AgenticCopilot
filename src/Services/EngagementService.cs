@@ -31,7 +31,7 @@ namespace AgenticCopilot.Services
         }
 
         /// <inheritdoc />
-        public Task<Engagement> GetEngagementByIdAsync(Guid id)
+        public Task<Engagement?> GetEngagementByIdAsync(Guid id)
         {
             lock (_lock)
             {
@@ -65,7 +65,7 @@ namespace AgenticCopilot.Services
         }
 
         /// <inheritdoc />
-        public Task<Engagement> UpdateEngagementAsync(Guid id, UpdateEngagementDto updateDto)
+        public Task<Engagement?> UpdateEngagementAsync(Guid id, UpdateEngagementDto updateDto)
         {
             if (updateDto == null)
                 throw new ArgumentNullException(nameof(updateDto));
@@ -74,14 +74,14 @@ namespace AgenticCopilot.Services
             {
                 var engagement = _engagements.FirstOrDefault(e => e.Id == id);
                 if (engagement == null)
-                    return Task.FromResult<Engagement>(null);
+                    return Task.FromResult<Engagement?>(null);
 
                 engagement.Name = updateDto.Name;
                 engagement.ClientName = updateDto.ClientName;
                 engagement.PartnerName = updateDto.PartnerName;
                 engagement.UpdatedAt = DateTime.UtcNow;
 
-                return Task.FromResult(engagement);
+                return Task.FromResult<Engagement?>(engagement);
             }
         }
 
